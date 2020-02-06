@@ -1,4 +1,4 @@
-#### POST ####
+# POST
 Post Installation Hardening Script
 Windows Server / Windows 10
 
