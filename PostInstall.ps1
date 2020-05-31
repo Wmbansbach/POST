@@ -15,20 +15,24 @@ and Compute with Windows Server 2016 - Greg Tomsho
 
 param ($domain, $timezone, $setip, $servname, $workgroup )
 
+## OS Check
 If ( Get-CimInstance Win32_OperatingSystem | Select-Object Caption -match 'Server' ) {
     $os = $true
 } Else {
     $os = $false
 }
 
+## Set Timezone
 If ( $timezone ) {
     Set-TimeZone $timezone
 } 
 
+## Change System Name
 If ( $servname ) {
     netdom renamecomputer $env:COMPUTERNAME /newname:$servname
 }
 
+## Join Domain | Setup Local Group Policy
 If ( $domain ) {
     Add-Computer -DomainName $domain
     If ( $os ) {
@@ -36,6 +40,7 @@ If ( $domain ) {
     } Else { ./Windows10_V1909_WindowsServer_V1909_Security_Baseline/Scripts/Baseline-LocalInstall.ps1 -Win10DomainJoined -Force }
 }
 
+## Join Workgroup | Setup Local Group Policy
 If ( $workgroup ) {
     Add-Computer -WorkgroupName $workgroup
     If ( $os ) {
@@ -43,6 +48,7 @@ If ( $workgroup ) {
     } Else { ./Windows10_V1909_WindowsServer_V1909_Security_Baseline/Scripts/Baseline-LocalInstall.ps1 -Win10NonDomainJoined -Force }
 }
 
+## Set Static Host Network Configuration
 If ( $setip ) {
     New-NetIPAddress
     Set-DnsClientServerAddress
