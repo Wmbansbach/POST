@@ -14,12 +14,11 @@ and Compute with Windows Server 2016 - Greg Tomsho
 
 
 param ($domain, $timezone, $setip, $servname, $workgroup )
+$os = $false
 
 ## OS Check
 If ( Get-CimInstance Win32_OperatingSystem | Select-Object Caption -match 'Server' ) {
     $os = $true
-} Else {
-    $os = $false
 }
 
 ## Set Timezone
