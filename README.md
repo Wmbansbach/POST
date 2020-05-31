@@ -7,7 +7,7 @@ Windows Server / Windows 10
 2. LGPO - Local Group Policy Object Utility
 > ** Both files can be found within the Microsoft Security Compliance Toolkit 1.0
 
-# Installation
+# Use
 1. Download and Extract Security Baseline, LGPO, and PostInstall
 2. Place LGPO into C:\..\Windows10_V1909_WindowsServer_V1909_Security_Baseline\Scripts\Tools
 3. Place both PostInstall.ps1 and Windows10_V1909_WindowsServer_V1909_Security_Baseline in the same directory
