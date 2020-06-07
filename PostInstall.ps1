@@ -4,20 +4,30 @@
 Based on commands found in MCSA Guide to Installation, Storage,
 and Compute with Windows Server 2016 - Greg Tomsho
 #>
-## Order of Operations ##
-# 1. OS Check
-# 2. Set Timezone
-# 3. Change System Name
-# 4. Join Workgroup \ Domain
-# 4.1. Set Local Group Policy
-# 5. Set Static IP 
-
 
 param ($domain, $timezone, $setip, $servname, $workgroup )
-$os = $false
+$isserver = $false
+$os = Get-CimInstance Win32_OperatingSystem | Select-Object Caption
+
+function Manual {
+    Write-Host "
+    POST Help
+   -----------------------------------
+    -domain [Domain Name]               Connects the host to the specified domain
+    -timezone [Standard Time Zone]      Sets the system timezone.
+    -setip [$true] or [1]               Sets hosts network configuration
+    -servname [Server Name]             Set host system name to specified server name
+    -workgroup [Workgroup Name]         Connects host to the specified workgroup 
+    "
+}
+
+## Check Arguments
+If ($args.Length -eq 0) {
+    Manual
+}
 
 ## OS Check
-If ( Get-CimInstance Win32_OperatingSystem | Select-Object Caption -match 'Server' ) {
+If ( $os -match 'Server' ) {
     $os = $true
 }
 
