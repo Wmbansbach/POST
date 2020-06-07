@@ -2,7 +2,7 @@
 Post Installation Hardening Script
 Windows Server / Windows 10
 
-> **Microsoft Security Compliance Toolkit 1.0 is required to 
+> **Microsoft Security Compliance Toolkit 1.0 is required to set GPO baseline.
 
 # Setup
 1. Download and Extract Security Baseline, LGPO, and PostInstall
