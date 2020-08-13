@@ -2,14 +2,7 @@
 Post Installation Hardening Script
 Windows Server / Windows 10
 
-> **Microsoft Security Compliance Toolkit 1.0 is required to set GPO baseline.
-
-# Setup
-1. Download and Extract Security Baseline, LGPO, and PostInstall
-2. Place LGPO into C:\..\Windows10_V1909_WindowsServer_V1909_Security_Baseline\Scripts\Tools
-3. Place both PostInstall.ps1 and Windows10_V1909_WindowsServer_V1909_Security_Baseline in the same directory
-
-# Use
+# Docs
 -domain [Domain Name]
     Connects the host to the specified domain
     
