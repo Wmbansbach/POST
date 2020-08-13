@@ -1,13 +1,11 @@
 ## Author: W.Bansbach ##
 ## Post Installation PowerShell Script ##
-<# Properly configures and hardens a Windows Server 2016 Installation
+<# Configures and hardens a Windows Server 2016 Installation
 Based on commands found in MCSA Guide to Installation, Storage,
 and Compute with Windows Server 2016 - Greg Tomsho
 #>
 
-param ($domain, $timezone, $setip, $servname, $workgroup )
-$isserver = $false
-$os = Get-CimInstance Win32_OperatingSystem | Select-Object Caption
+param ($domain, $timezone, $setip, $servname, $workgroup)
 
 function Manual {
     Write-Host "
@@ -26,11 +24,6 @@ If ($args.Length -eq 0) {
     Manual
 }
 
-## OS Check
-If ( $os -match 'Server' ) {
-    $os = $true
-}
-
 ## Set Timezone
 If ( $timezone ) {
     Set-TimeZone $timezone
@@ -41,20 +34,14 @@ If ( $servname ) {
     netdom renamecomputer $env:COMPUTERNAME /newname:$servname
 }
 
-## Join Domain | Setup Local Group Policy
+## Join Domain
 If ( $domain ) {
     Add-Computer -DomainName $domain
-    If ( $os ) {
-        ./Windows10_V1909_WindowsServer_V1909_Security_Baseline/Scripts/Baseline-LocalInstall.ps1 -WSMember -Force
-    } Else { ./Windows10_V1909_WindowsServer_V1909_Security_Baseline/Scripts/Baseline-LocalInstall.ps1 -Win10DomainJoined -Force }
 }
 
-## Join Workgroup | Setup Local Group Policy
+## Join Workgroup
 If ( $workgroup ) {
     Add-Computer -WorkgroupName $workgroup
-    If ( $os ) {
-        ./Windows10_V1909_WindowsServer_V1909_Security_Baseline/Scripts/Baseline-LocalInstall.ps1 -WSNonDomainJoined -Force
-    } Else { ./Windows10_V1909_WindowsServer_V1909_Security_Baseline/Scripts/Baseline-LocalInstall.ps1 -Win10NonDomainJoined -Force }
 }
 
 ## Set Static Host Network Configuration
