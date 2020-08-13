@@ -17,7 +17,3 @@ Windows Server / Windows 10
     
 -workgroup [Workgroup Name]
     Connects host to the specified workgroup
-    
--gpo [$false]
-    Set to false, if no GPO changes are needed
-   
