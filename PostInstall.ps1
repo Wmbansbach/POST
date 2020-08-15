@@ -12,7 +12,7 @@ function Manual {
     POST Help
    -----------------------------------
     -domain [Domain Name]               Connects the host to the specified domain
-    -timezone [Standard Time Zone]      Sets the system timezone.
+    -timezone [Standard Time Zone]      Sets the system timezone. (Ex. Eastern Standard Time)
     -setip [$true] or [1]               Sets hosts network configuration
     -servname [Server Name]             Set host system name to specified server name
     -workgroup [Workgroup Name]         Connects host to the specified workgroup 
