@@ -86,6 +86,7 @@ function UpdateHost(){
         ## NuGet utility needed for PSWindowsUpdate module install
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
         Install-Module PSWindowsUpdate -Force
+        Import-Module PSWindowsUpdate -Force
 
         ## Check for Updates
         Get-WindowsUpdate
@@ -131,9 +132,3 @@ UpdateHost
 
 # Complete Logging
 Stop-Transcript
-
-
-
-
-
-
