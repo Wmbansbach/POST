@@ -28,6 +28,3 @@ Known Issues:
 1. [SOLVED] For all features to work, script must be ran as Administrator (Requires RunAsAdministrator - Line #43)
 2.
 --------------------------------------------------
-Notes:
-* Author - W.Bansbach
-#--------------------------------------------------
