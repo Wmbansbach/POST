@@ -1,19 +1,42 @@
-# POST
-Post Installation Hardening Script
-Windows Server / Windows 10
-
-# Docs
--domain [Domain Name]
-    Connects the host to the specified domain
-    
--timezone [Standard Time Zone]
-    Sets the system timezone
-    
--setip [$true]
-    Sets hosts network configuration
-    
--servname [Server Name]
-    Set host system name to specified server name
-    
--workgroup [Workgroup Name]
-    Connects host to the specified workgroup
+# Post Installation Utility
+#--------------------------------------------------
+# Synopsis:
+# * Configures and hardens a Windows Server 2016 Installation
+#   Based on commands found in MCSA Guide to Installation, Storage,
+#   and Compute with Windows Server 2016 - Greg Tomsho
+#
+#--------------------------------------------------
+# Documentation:
+# * Parameters
+#   > DomainName [Domain Name]          - [Optional] Connects the host to specified domain
+#   > Timezone [Standard Time Zone]     - [Optional] Sets the host timezone
+#   > SetIp [$true] or [1]              - [Optional] Runs network cmdlet
+#   > ServerName [Server Name]          - [Mandatory] Set the host system name
+#   > WorkgroupName [Workgroup Name]    - [Optional] Set the host workgroup name
+#                   
+# * Logging
+#   > Is completed via some goodies found in the comments here: https://community.spiceworks.com/topic/1233789-add-logging-to-powershell-script
+#   > Logs: [Current_Working_Directory]\Log\PostInstall.ps1-[Date].log
+#
+#--------------------------------------------------
+# Change Log:
+# * 10/16/2021
+#   - Updated Synopsis, Documentation, and Known Issues sections
+#   - Changed Parameter & Variable names
+#   - Explicitly defined parameter datatypes
+#   - Added a Connection Test after configuration
+#   - Changed the NetSet Param
+# * 10/17/2021
+#   - Added UpdateHost function
+#   - Moved NetConnection to UpdateHost before depedencies are installed
+#   - Added Logging
+#
+#--------------------------------------------------
+# Known Issues:
+# 1. [SOLVED] For all features to work, script must be ran as Administrator (Requires RunAsAdministrator - Line #43)
+# 2.
+#--------------------------------------------------
+# Notes:
+# * Author - W.Bansbach
+#
+#--------------------------------------------------
