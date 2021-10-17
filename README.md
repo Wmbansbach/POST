@@ -2,14 +2,14 @@
 --------------------------------------------------
 # Documentation:
 * Parameters
-  > DomainName [Domain Name]          - [Optional] Connects the host to specified domain
-  > Timezone [Standard Time Zone]     - [Optional] Sets the host timezone
-  > SetIp [$true] or [1]              - [Optional] Runs network cmdlet
-  > ServerName [Server Name]          - [Mandatory] Set the host system name
-  > WorkgroupName [Workgroup Name]    - [Optional] Set the host workgroup name
+  > DomainName [Domain Name] - [Optional] Connects the host to specified domain<br />
+  > Timezone [Standard Time Zone] - [Optional] Sets the host timezone<br />
+  > SetIp [$true] or [1] - [Optional] Runs network cmdlet<br />
+  > ServerName [Server Name] - [Mandatory] Set the host system name<br />
+  > WorkgroupName [Workgroup Name] - [Optional] Set the host workgroup name<br />
                    
 * Logging
-  > Is completed via some goodies found in the comments here: https://community.spiceworks.com/topic/1233789-add-logging-to-powershell-script
+  > Is completed via some goodies found in the comments here: https://community.spiceworks.com/topic/1233789-add-logging-to-powershell-script<br />
   > Logs: [Current_Working_Directory]\Log\PostInstall.ps1-[Date].log
 --------------------------------------------------
 Change Log:
